@@ -59,7 +59,7 @@ CNorm_l = CNorm; clear CNorm
 % % ./voc-release5/gdetect/ ./voc-release5/features/ ./voc-release5/model/
 % ./voc-release5/test/ ./voc-release5/bin/
 
-fst_frame = 0; nt_frames = 7480;
+fst_frame = 7269; nt_frames = 7480;
 % %------------------------------------------------------------------------
 for frame = fst_frame: 1: nt_frames
 % tic
@@ -129,16 +129,15 @@ ImaRange = Fun_dense_range_map(calib(frame+1),calib_dir,base_dir,frame,ImaRGB, c
 % end
 
 XYZ(:,:,channel_no) = ImaRange; 
-imwrite(ImaRange, sprintf('Frame_%1d_channel_%1d.png',frame, channel_no));
+% imwrite(ImaRange, sprintf('transformedimage_eachchannel/Frame_%1d_channel_%1d.png',frame, channel_no));
  
 end
 
-imwrite(XYZ, sprintf('%06d_2.png',frame));
+imwrite(XYZ, sprintf('transformedimage/%06d_2.png',frame));
 
  % ==========
 fprintf('Frame:%1d of %1d \n',frame,nt_frames);
 clear XYZ; 
 % toc
 end
-
 
